@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieReviews } from '../../Api';
 import { notifyError } from '../Toast/Toast';
+import css from './MovieReviews.module.css'
 
 export default function MovieReviews() {
    const [reviewsList, setReviewsList] = useState([]);
@@ -19,13 +20,14 @@ export default function MovieReviews() {
         }
         getReviews(movieId);
     }, [movieId]); 
+
     return (
-        <main className='container'>
-            <ul>
+        <main>
+            <ul className={css.review}>
                 { reviewsList.length > 0 
                     ? reviewsList.map(({author, content, id}) => (
-                            <li key={id}>
-                                <p>{author}</p>
+                            <li key={id} className={css.reviewItm}>
+                                <p className={css.autor}>{author}</p>
                                 <p>{content}</p>
                             </li>
                         ))

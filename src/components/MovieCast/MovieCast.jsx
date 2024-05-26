@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieCast } from '../../Api';
 import { notifyError } from '../Toast/Toast';
+import css from './MovieCast.module.css'
 
 export default function MovieCast() {
    const [castList, setCastList] = useState([]);
@@ -22,7 +23,7 @@ export default function MovieCast() {
   }, [movieId]);
 
    return (
-    <ul>
+    <ul className={css.cast}>
       {castList.length > 0 
         ? castList.map(({ id, name, profile_path, character }) => (
           <li key={id}>

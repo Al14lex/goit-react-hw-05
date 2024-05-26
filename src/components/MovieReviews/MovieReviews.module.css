@@ -1,0 +1,23 @@
+.autor{
+    font-size: 18px;
+    font-weight: 700;
+}
+.reviewItm{
+    padding: 10px 20px;
+        border: 2px solid;
+        border-color: rgb(60, 60, 60);
+        border-radius: 8px;
+        max-height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+}
+.review {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,37 @@
+.goBack{
+        padding: 10px;
+        background-color: rgb(52, 52, 52);
+        border-radius: 5px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        
+    }
+.details{
+    display: flex;
+    margin-top: 15px;
+    padding: 15px 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 30px;
+}
+.list{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.itemFirst{
+    padding: 10px 25px;
+        background-color: rgb(52, 52, 52);
+        border-radius: 5px;
+        font-weight: 800;
+}
+.item {
+    padding: 10px;
+    background-color: rgb(52, 52, 52);
+    border-radius: 5px;
+    font-weight: 800;
+}

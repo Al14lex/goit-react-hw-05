@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense } from 'react'
 import Load from "../../components/Load/Load"
 import { notifyError } from "../../components/Toast/Toast"
 import { getMovieDetails } from "../../Api"
+import css from './MovieDetailsPage.module.css'
 
 export default function MovieDetailsPage() {
     const [movieDetails, setDetails] = useState({});
@@ -29,8 +30,8 @@ export default function MovieDetailsPage() {
     return (
         <main>
             <div>
-                <Link to={location.state?.from ?? '/'}>Go back</Link>
-                <div>
+                <Link to={location.state?.from ?? '/'} className={css.goBack}>Go back</Link>
+                <div className={css.details}>
                     <img src={poster_path
                     ? `https://image.tmdb.org/t/p/w300${poster_path}`
                     : `http://www.suryalaya.org/images/no_image.jpg`} 
@@ -50,13 +51,13 @@ export default function MovieDetailsPage() {
                 </div>
                 <div>
                     <h3>Additional information</h3>
-                    <ul>
+                    <ul className={css.list}>
                         <li>
-                            <Link to="cast" state={{ ...location.state }}>Cast</Link>
+                            <Link to="cast" state={{ ...location.state }} className={css.itemFirst}>Cast</Link>
                         </li>
                         <li>
                             {' '}
-                            <Link to="reviews" state={{ ...location.state }}>Reviews</Link>
+                            <Link to="reviews" state={{ ...location.state }} className={css.item}>Reviews</Link>
                         </li>
                     </ul>
                 </div>
