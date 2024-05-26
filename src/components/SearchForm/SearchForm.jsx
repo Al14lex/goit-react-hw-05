@@ -28,7 +28,7 @@ export default function SearchForm({ onSubmit }) {
                 autoFocus 
                 value={movieName}
                 onChange={(e) => setMovieName(e.target.value)}
-                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                pattern="[a-zA-Zа-яА-Я\s'-]"
                 required={false}
             />
             <button type="submit" >Search</button>

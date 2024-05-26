@@ -44,13 +44,10 @@ export default function MoviesPage() {
         getMovieFromInput(movieName);
     }, [movieName]);
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        const inInput = e.currentTarget;
-        setSearchParams({ movieName: inInput.elements.movieName.value });
-        inInput.reset();
+  const handleSubmit = movieName => {
+    setSearchParams({ movieName });
     };
-
+    
  return (
         <main>
          <div>
