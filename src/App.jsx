@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 
 import Load from './components/Load/Load.jsx';
 import Navigation from './components/Navigation/Navigation.jsx';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx'
 
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
@@ -27,7 +28,7 @@ export default function App() {
               <Route path="cast" element={<MovieCast />}/>
               <Route path="reviews" element={<MovieReviews />}/>
           </Route>
-          
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </>
