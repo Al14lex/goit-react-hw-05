@@ -1,13 +1,14 @@
-import {Link, useLocation} from 'react-router-dom'
+
 import { useState, useEffect } from 'react'
 import { getTrendMovies } from '../../Api';
+import MovieList from '../../components/MovieList/MovieList';
 import Load from '../../components/Load/Load';
 import css from './HomePage.module.css'
 
 export default function HomePage() {
     const [trendMovies, setTrendMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const location = useLocation();
+    
     
     useEffect(() => {
         async function getMovies() {
@@ -27,16 +28,8 @@ export default function HomePage() {
   return (
     <main className={css.container}>
       <h1>Trending today</h1>
-          <ul>
-              {trendMovies.map(movie => (
-                <li key={movie.id} >
-                            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-                                {movie.title}
-                            </Link>
-                        </li>  
-              ))}
-              {loading && <Load />}
-       </ul>
+      <MovieList movies={trendMovies}/>
+       {loading && <Load />}
     </main>
   );
 }

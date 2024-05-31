@@ -1,4 +1,4 @@
-import { useSearchParams, useLocation, Link} from "react-router-dom";
+import { useSearchParams} from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { SearchMovie } from '../../Api';
 import SearchForm from "../../components/SearchForm/SearchForm";
@@ -6,10 +6,9 @@ import Load from "../../components/Load/Load";
 import { ToastContainer } from 'react-toastify'; 
 import { notifyError } from "../../components/Toast/Toast";
 import 'react-toastify/dist/ReactToastify.css';
-
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function MoviesPage() {
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
     const movieName = searchParams.get('movieName') ?? '';
     const [moviesList, setMoviesList] = useState([]);
@@ -54,18 +53,8 @@ export default function MoviesPage() {
              <ToastContainer />
              <SearchForm onSubmit={handleSubmit} />
                 {error && <p>There is no movies with this request.</p>}
-                <ul>
-                    {moviesList.map(movie => {
-                        return (
-                            <li key={movie.id}>
-                                <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-                                    {movie.original_title || movie.name}
-                                </Link>
-                            </li>
-                        );
-                    })}
-                    {loading && <Load/>}
-                </ul>
+                <MovieList movies={moviesList}/>
+             {loading && <Load/>}
             </div>
         </main>
     )

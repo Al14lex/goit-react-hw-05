@@ -19,7 +19,7 @@ export default function App() {
     <>
     <ToastContainer />
       <Navigation/>
-      <Suspense fallback={<Load />}>
+      <Suspense Suspense fallback={<Load />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
